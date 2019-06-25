@@ -23,22 +23,22 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
   res.render('index', {
-    title: 'Weather',
+    title: 'Clima',
     name: 'Daniel Galván'
   })
 })
 
 app.get('/about', (req, res) => {
   res.render('about', {
-    title: 'About me',
+    title: 'Acerca de mi',
     name: 'Daniel Galván'
   })
 })
 
 app.get('/help', (req, res) => {
   res.render('help', {
-    helpText: 'This is some helpful text',
-    title: 'Help',
+    helpText: 'Esto es un texto de ayuda',
+    title: 'Ayuda',
     name: 'Daniel Galván'
   })
 })
@@ -46,7 +46,7 @@ app.get('/help', (req, res) => {
 app.get('/weather', (req, res) => {
   if(!req.query.address) {
     return res.send({
-      error: 'You must provide an address!'
+      error: 'Por favor proporciona una dirección'
     })
   }
 
@@ -72,7 +72,7 @@ app.get('/weather', (req, res) => {
 app.get('/products', (req, res) => {
   if (!req.query.search) {
     return res.send({
-      error: 'You must provide a search term'
+      error: 'Debes de proporcionar un término de busqueda'
     })
   }
   console.log(req.query.search)
@@ -84,7 +84,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
   res.render('404', {
     title: '404',
-    errorMessage: 'Help article not found',
+    errorMessage: 'Artículo de ayuda no encontrado',
     name: 'Daniel Galván'
   })
 })
@@ -92,7 +92,7 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
   res.render('404', {
     title: '404',
-    errorMessage: 'Page not found',
+    errorMessage: 'Página no encontrada',
     name: 'Daniel Galván'
   })
 })
