@@ -8,7 +8,7 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.error) {
       callback('¡No se puede encontrar la ubicación!', undefined);
     } else {
-      callback(undefined, body.daily.data[0].summary + ' Actualmente la temperatura es de ' + body.currently.temperature + '° centigrados. Hay un ' + body.currently.precipProbability + '% de posibilidad de lluvia.');
+      callback(undefined, body.daily.data[0].summary + ' Actualmente la temperatura es de ' + body.currently.temperature + '° centigrados. Hay un ' + body.currently.precipProbability + '% de posibilidad de lluvia. La máxima temperatura de hoy será de ' + body.daily.data[0].temperatureMax + '° centigrados y la mínima temperatura sera de ' + body.daily.data[0].temperatureMin + '° centigrados.');
     }
   });
 }
